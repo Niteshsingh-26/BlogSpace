@@ -29,61 +29,56 @@ const Signup = () => {
     };
 
     return (
-        <div className="d-flex align-items-center justify-content-center vh-100 bg-light">
-            <div className="card shadow-sm p-4" style={{ width: '100%', maxWidth: '400px' }}>
-                <h3 className="text-center mb-3 text-primary">Admin Signup</h3>
-                <p className="text-center text-muted small">
-                    Create an account to access the admin panel
-                </p>
-                <form onSubmit={handleSubmit}>
-                    <div className="mb-3">
-                        <label htmlFor="name" className="form-label">Name</label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            id="name"
-                            placeholder="Enter your name"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            required
-                        />
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor="email" className="form-label">Email address</label>
-                        <input
-                            type="email"
-                            className="form-control"
-                            id="email"
-                            placeholder="Enter your email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            required
-                        />
-                    </div>
-                    <div className="mb-4">
-                        <label htmlFor="password" className="form-label">Password</label>
-                        <input
-                            type="password"
-                            className="form-control"
-                            id="password"
-                            placeholder="Enter your password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            required
-                        />
-                    </div>
-                    <button type="submit" className="btn btn-primary w-100">
-                        Sign up
-                    </button>
-                </form>
-                <div className="text-center mt-3">
-                    <small className="text-muted">Already have an account?</small>{' '}
-                    <Link to="/login" className="text-decoration-none text-primary fw-medium">
-                        Log in
-                    </Link>
+        <div className="container mt-5">
+            <h2 className="text-center">Admin Signup</h2>
+            <form onSubmit={handleSubmit} className="mt-4">
+                <div className="mb-3">
+                    <label className="form-label">Name</label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Enter name"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        required
+                    />
                 </div>
-            </div>
+
+                <div className="mb-3">
+                    <label className="form-label">Email</label>
+                    <input
+                        type="email"
+                        className="form-control"
+                        placeholder="Enter email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                    />
+                </div>
+
+                <div className="mb-3">
+                    <label className="form-label">Password</label>
+                    <input
+                        type="password"
+                        className="form-control"
+                        placeholder="Enter password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                </div>
+
+                <button type="submit" className="btn btn-primary w-100">
+                    Sign Up
+                </button>
+            </form>
+
+            <p className="text-center mt-3">
+                Already have an account?{" "}
+                <Link to="/login">Login</Link>
+            </p>
         </div>
+
     );
 };
 

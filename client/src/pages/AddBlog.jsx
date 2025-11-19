@@ -3,7 +3,6 @@ import Quill from 'quill';
 import { useAppContext } from '../context/UseAppContext';
 import toast from 'react-hot-toast';
 import { parse } from 'marked';
-import upload_area from '../assets/upload_area.svg';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
@@ -97,28 +96,18 @@ function AddBlog() {
         <>
             <Navbar />
             <div className="container my-5">
-                <form
-                    onSubmit={onSubmitHandler}
-                    className="mx-auto bg-white p-4 p-md-5 rounded shadow"
-                    style={{ maxWidth: '800px' }}
-                >
+                <form onSubmit={onSubmitHandler}>
                     {/* Upload Thumbnail */}
                     <div className="mb-4">
                         <label className="form-label fw-bold">Upload thumbnail</label>
                         <div className="mb-2">
                             <label htmlFor="image">
-                                <img
-                                    src={!image ? upload_area : URL.createObjectURL(image)}
-                                    alt=""
-                                    className="img-thumbnail"
-                                    style={{ height: '100px', width: '180px', objectFit: 'cover', cursor: 'pointer' }}
-                                />
                                 <input
                                     type="file"
-                                    id="image"
-                                    hidden
-                                    onChange={e => setImage(e.target.files[0])}
-                                    required
+                                    onChange={(e) => {
+                                        const file = e.target.files[0];
+                                        setImage(file);
+                                    }}
                                 />
                             </label>
                         </div>
