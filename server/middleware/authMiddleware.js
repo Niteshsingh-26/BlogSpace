@@ -19,3 +19,4 @@ export const authMiddleware = (req, res, next) => {
       .json({ message: "Authentication failed: Invalid token" });
   }
 };
+

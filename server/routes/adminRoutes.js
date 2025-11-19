@@ -11,7 +11,7 @@ import {
 const adminRouter = express.Router();
 
 adminRouter.post("/add", authMiddleware, upload.single("image"), addBlog);
-adminRouter.put("/updateBlog/:id", upload.single("image"), updateBlogById);
-adminRouter.post("/deleteBlog/:id", deleteBlogById);
-adminRouter.post("/generateContent", generateContent);
+adminRouter.put("/updateBlog/:id", authMiddleware, upload.single("image"), updateBlogById);
+adminRouter.delete("/deleteBlog/:id", authMiddleware, deleteBlogById); 
+adminRouter.post("/generateContent", authMiddleware, generateContent);
 export default adminRouter;
